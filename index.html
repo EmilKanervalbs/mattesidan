@@ -6,12 +6,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link type="text" rel="stylesheet" href="./style.css" />
+    <link type="text/css" rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <h1>
       Välkomna till mattesidan!
     </h1>
+
+    <h2> Quad</h2>
+
+    <input type="number" id="quad1" class="quad"/>
+    x² +
+    <input type="number" id="quad2" class="quad"/>
+    x +
+    <input type="number" id="quad3" class="quad" />
+
+    <button onclick="quadratic()"> Calculate </button>
+
+    <div class="answer" id="quad">
+        x1 = <br> x2 =
+    </div>
+
+
+    <div class="divider"></div>
+
+    <h2> pytjh</h2>
+
+    a: 
+    <input type="number" id="pythA" />
+
+    <div class="pythAns"> a = </div>
+
+    b: 
+    <input type="number" id="pythB" />
+    <div class="pythAns"> b = </div>
+
+    c: 
+    <input type="number" id="pythC" />
+    <div class="pythAns"> c = </div>
+
+    <button onclick="pythagoras()"> Calculate </button>
+
+    <div class="divider"></div>
+
+
+    position 1:
+
+    <input type="number" id="x1"/>
+    <input type="number" id="y1"/>
+
+    <br>    
+
+    position 2:
+    <input type="number" id="x2"/>
+    <input type="number" id="y2"/>
+
+    <br>
+
+    <div id="lineAns">Equation: </div>
+
+
+    <button onclick="line()"> Calculate </button>
+
+
   </body>
-  <script src="./js/script.js"></script>
+  <script src="/js/script.js"></script>
 </html>
