@@ -12,7 +12,7 @@ function quadratic() {
     var y = "x1 = " + ans[0] + "<br> x2 = " + ans[1];
     }
 
-    document.getElementById("quad").innerHTML = y;
+    document.getElementById("quadAns").innerHTML = y;
 }
 
 
@@ -54,7 +54,7 @@ function pythagoras() {
     var el = document.getElementsByClassName("pythAns");
 
     for (let i = 0; i < 3; i++) {
-        el[i].innerHTML = standard[i] + numb[i];
+        el[i].innerHTML = numb[i];
     }
 
     // console.log(ansA + ", " + ansB + ", " + ansC);
@@ -106,7 +106,7 @@ function line() {
     var tilt = ans[0]
     var m = ans[1]
 
-    document.getElementById("lineAns").innerHTML = "Equation: " + tilt + "x + " + m; 
+    document.getElementById("lineAns").innerHTML = "y = " + tilt + "x + " + m; 
 
 
 }

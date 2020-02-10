@@ -23,7 +23,7 @@
 
     <button onclick="quadratic()" id="quadbutton"> Calculate </button>
 
-    <div class="answer" id="quad">
+    <div class="answer" id="quadAns">
         x1 = <br> x2 =
     </div>
 
@@ -34,16 +34,21 @@
 
     a: 
     <input type="number" id="pythA" />
-
-    <div class="pythAns"> a = </div>
+    <div> a = <b class="pythAns" id="pyth1"></b> </div>
 
     b: 
     <input type="number" id="pythB" />
-    <div class="pythAns"> b = </div>
+    <div> b = <b class="pythAns" id="pyth2"></b> </div>
+
+
+    <!-- <div class="pythAns" id="pyth2"> b = </div> -->
 
     c: 
     <input type="number" id="pythC" />
-    <div class="pythAns"> c = </div>
+    <div> c = <b class="pythAns" id="pyth3"></b> </div>
+
+
+    <!-- <div class="pythAns" id="pyth3"> c = </div> -->
 
     <button onclick="pythagoras()" id="pythbutton"> Calculate </button>
 
@@ -66,7 +71,7 @@
 
     <br>
 
-    <div id="lineAns">Equation: </div>
+    <div >Equation: <b id="lineAns"></b> </div>
 
 
     <button onclick="line()" id="linebutton"> Calculate </button>

@@ -13,3 +13,7 @@ input {
 .pythAns {
     padding: 5px 0px;
 }
+
+b {
+    font-weight: normal;
+}
