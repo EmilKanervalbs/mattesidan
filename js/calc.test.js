@@ -4,12 +4,15 @@ const { calcPyth } = require("./calc");
 
 const { calcLine } = require("./calc");
 
-test("testar om falsk rot", () => {
+const puppeteer = require("puppeteer");
+
+
+test("testar om falsk rot ger false i return", () => {
     expect(calcQuad(2, 2, 50)).toBe(false);
 
 });
 
-test("testar om skärningspunkt i x^2 är endast 0", () => {
+test("testar om skärningspunkt i y = x^2 är endast 0", () => {
     expect(calcQuad(1, 0, 0)).toBe("0 0");
 
 });
@@ -19,29 +22,25 @@ test("testar om normal 3 4 5 triangel funkar", () => {
 
 });
 
-test("testar om alla värden är insatta i pythagoras", () => {
+test("testar om den ger false när alla värden är insatta i pythagoras (inget att räkna ut)", () => {
     expect(calcPyth(3, 4, 5)).toBe(false);
 
 });
 
-test("testar om enkel linje", () => {
+test("testar om räta linjen fungerar", () => {
     expect(calcLine(1, 2, 3, 4)).toBe("1 1");
 
 });
 
 
-const puppeteer = require("puppeteer");
-
-
 test("testar kvadratiska funktioner på hemsidan", async () => {
     const browser = await puppeteer.launch({
         headless: false,
-        // slowMo: 25,
+        slowMo: 25,
         args: ["--window-size:1920, 1080"]
     });
 
     const page = await browser.newPage();
-    //await page.goto("file:///C:/Users/emil.kanerva/Documents/Skola/Webbutveckling1/mattesidan/index.html");
     await page.goto("http://127.0.0.1:5500/index.html");
 
     await page.type("#quad1", "2");
@@ -62,17 +61,14 @@ test("testar kvadratiska funktioner på hemsidan", async () => {
 });
 
 
-
-
 test("testar pythagoras på hemsidan", async () => {
     const browser = await puppeteer.launch({
         headless: false,
-        // slowMo: 25,
+        slowMo: 25,
         args: ["--window-size:1920, 1080"]
     });
 
     const page = await browser.newPage();
-    //await page.goto("file:///C:/Users/emil.kanerva/Documents/Skola/Webbutveckling1/mattesidan/index.html");
     await page.goto("http://127.0.0.1:5500/index.html");
 
     await page.type("#pythA", "3");
@@ -92,13 +88,10 @@ test("testar pythagoras på hemsidan", async () => {
 });
 
 
-
-
-
 test("testar räta linjens funktion på hemsidan", async () => {
     const browser = await puppeteer.launch({
         headless: false,
-        // slowMo: 25,
+        slowMo: 25,
         args: ["--window-size:1920, 1080"]
     });
 
@@ -117,7 +110,6 @@ test("testar räta linjens funktion på hemsidan", async () => {
     const result1 = await page.$eval("#lineAns", el => el.textContent);
     await expect(result1).toBe("y = -2x + 5");
 });
-
 
 
 test("testar allt på hemsidan, samtigit", async () => {
@@ -171,5 +163,3 @@ test("testar allt på hemsidan, samtigit", async () => {
     const result5 = await page.$eval("#lineAns", el => el.textContent);
     await expect(result5).toBe("y = -2x + 5");
 });
-
-
