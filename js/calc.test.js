@@ -7,6 +7,10 @@ const { calcLine } = require("./calc");
 const puppeteer = require("puppeteer");
 
 
+//varibel som håller var sidan ligger
+const filePath = "http://127.0.0.1:5500/index.html";
+
+
 test("testar om falsk rot ger false i return", () => {
     expect(calcQuad(2, 2, 50)).toBe(false);
 
@@ -41,7 +45,7 @@ test("testar kvadratiska funktioner på hemsidan", async () => {
     });
 
     const page = await browser.newPage();
-    await page.goto("http://127.0.0.1:5500/index.html");
+    await page.goto(filePath);
 
     await page.type("#quad1", "2");
     await page.type("#quad2", "0");
@@ -53,11 +57,6 @@ test("testar kvadratiska funktioner på hemsidan", async () => {
     const result1 = await page.$eval("#quadAns", el => el.textContent);
     await expect(result1).toBe("x1 = 1 x2 = -1");
 
-    // const result2 = await page.$eval("#pyth2", el => el.textContent);
-    // await expect(result2).toBe("4");
-    
-    // const result3 = await page.$eval("#pyth3", el => el.textContent);
-    // await expect(result3).toBe("5");
 });
 
 
@@ -69,7 +68,7 @@ test("testar pythagoras på hemsidan", async () => {
     });
 
     const page = await browser.newPage();
-    await page.goto("http://127.0.0.1:5500/index.html");
+    await page.goto(filePath);
 
     await page.type("#pythA", "3");
     await page.type("#pythB", "4");
@@ -85,6 +84,7 @@ test("testar pythagoras på hemsidan", async () => {
     
     const result3 = await page.$eval("#pyth3", el => el.textContent);
     await expect(result3).toBe("5");
+
 });
 
 
@@ -96,8 +96,7 @@ test("testar räta linjens funktion på hemsidan", async () => {
     });
 
     const page = await browser.newPage();
-    //await page.goto("file:///C:/Users/emil.kanerva/Documents/Skola/Webbutveckling1/mattesidan/index.html");
-    await page.goto("http://127.0.0.1:5500/index.html");
+    await page.goto(filePath);
 
     await page.type("#x1", "1");
     await page.type("#y1", "3");
@@ -109,6 +108,7 @@ test("testar räta linjens funktion på hemsidan", async () => {
     
     const result1 = await page.$eval("#lineAns", el => el.textContent);
     await expect(result1).toBe("y = -2x + 5");
+
 });
 
 
@@ -120,8 +120,7 @@ test("testar allt på hemsidan, samtigit", async () => {
     });
 
     const page = await browser.newPage();
-    //await page.goto("file:///C:/Users/emil.kanerva/Documents/Skola/Webbutveckling1/mattesidan/index.html");
-    await page.goto("http://127.0.0.1:5500/index.html");
+    await page.goto(filePath);
 
     await page.type("#quad1", "2");
     await page.type("#quad2", "0");
