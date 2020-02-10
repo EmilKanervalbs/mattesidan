@@ -6,7 +6,11 @@ function quadratic() {
 
     var ans = calcQuad(a, b, c).split(" ");
     
+    if (ans == false) {
+        var y = "negativ rot!"
+    } else {
     var y = "x1 = " + ans[0] + "<br> x2 = " + ans[1];
+    }
 
     document.getElementById("quad").innerHTML = y;
 }
@@ -14,10 +18,16 @@ function quadratic() {
 
 function calcQuad(a, b, c) {
     var del1 = -b
-    var del2 = Math.sqrt(Math.pow(b, 2) - 4 * a * c);
+
+    var x = Math.pow(b, 2) - 4 * a * c;
+
+    if (x < 0) return false;
+
+    var del2 = Math.sqrt(x);
 
     var x1 = (del1 + del2) / (2 * a);
     var x2 = (del1 - del2) / (2 * a);
+
 
     return x1 + " " + x2;
 }
@@ -90,17 +100,8 @@ function line() {
     var x2 = document.getElementById("x2").value;
     var y2 = document.getElementById("y2").value;
 
+
     ans = calcLine(x1, y1, x2, y2).split(" ");
-
-
-
-    // var dy = y2 - y1;
-    // var dx = x2 - x1;
-
-    // var tilt = dy/dx;
-
-    // var m = y1 - tilt * x1;
-
 
     var tilt = ans[0]
     var m = ans[1]
